@@ -1,0 +1,373 @@
+/* A MANSÃO — styles.css */
+:root{
+  --bg:#07080b;
+  --panel: rgba(10,12,16,.78);
+  --panel2: rgba(10,12,16,.58);
+  --txt: #f2f4f8;
+  --muted: rgba(242,244,248,.72);
+  --line: rgba(255,255,255,.10);
+  --accent: #f4b414;
+  --danger: #fe6f27;
+  --shadow: 0 20px 70px rgba(0,0,0,.55);
+  --radius: 18px;
+  --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  color:var(--txt);
+  background: var(--bg);
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+  overflow-x:hidden;
+}
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  background:
+    radial-gradient(1200px 800px at 20% 0%, rgba(244,180,20,.18), transparent 55%),
+    radial-gradient(900px 700px at 100% 40%, rgba(254,111,39,.12), transparent 60%),
+    linear-gradient(to bottom, rgba(0,0,0,.78), rgba(0,0,0,.92));
+  z-index:-3;
+  pointer-events:none;
+}
+body::after{
+  content:"";
+  position:fixed;
+  inset:0;
+  background: url("mansao.jpg") center/cover no-repeat;
+  filter: grayscale(.15) contrast(1.05) brightness(.75);
+  z-index:-4;
+  transform: scale(1.03);
+}
+#rain{
+  position:fixed;
+  inset:0;
+  z-index:-2;
+  pointer-events:none;
+}
+#lightning{
+  position:fixed;
+  inset:0;
+  background: rgba(255,255,255,0);
+  z-index:-1;
+  pointer-events:none;
+  transition: background 90ms linear;
+}
+.topbar{
+  position:sticky;
+  top:0;
+  z-index:5;
+  display:flex;
+  gap:12px;
+  align-items:stretch;
+  justify-content:space-between;
+  padding:14px 14px 10px;
+  background: rgba(0,0,0,.40);
+  backdrop-filter: blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.brand{display:flex; flex-direction:column; gap:2px; min-width:200px}
+.title{font-weight:900; letter-spacing:.18em}
+.subtitle{font-size:.82rem; color:var(--muted)}
+.hud{display:flex; flex-direction:column; gap:8px; flex:1; max-width:900px}
+.hud__row{display:flex; gap:10px; flex-wrap:wrap}
+.hud__item{
+  display:flex; gap:8px; align-items:baseline;
+  padding:6px 10px;
+  border:1px solid var(--line);
+  border-radius:999px;
+  background: rgba(0,0,0,.25);
+}
+.hud__item .k{font-size:.72rem; color:var(--muted); letter-spacing:.08em}
+.hud__item .v{font-family:var(--mono); font-weight:800}
+.actions{display:flex; gap:10px; align-items:center}
+.wrap{max-width:1100px; margin:0 auto; padding:18px 14px 48px}
+.panel{
+  background: var(--panel);
+  border:1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding:18px 16px;
+}
+.panel h1{margin:0 0 6px}
+.muted{color:var(--muted); margin:0 0 14px}
+.tiny{font-size:.82rem}
+.grid{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap:12px;
+}
+@media (max-width: 880px){
+  .grid{grid-template-columns: 1fr}
+  .brand{min-width:auto}
+}
+.field{display:flex; flex-direction:column; gap:6px}
+.field > span{font-size:.88rem; color:rgba(255,255,255,.85)}
+.field input{
+  width:100%;
+  padding:12px 12px;
+  border-radius: 12px;
+  border:1px solid var(--line);
+  background: rgba(0,0,0,.35);
+  color: var(--txt);
+  outline: none;
+  font-family: var(--mono);
+}
+.field input:focus{border-color: rgba(244,180,20,.65)}
+.row{display:flex; gap:10px}
+.row input{flex:1}
+.hint{color:var(--muted); font-size:.8rem}
+.btn{
+  appearance:none;
+  border:1px solid var(--line);
+  border-radius: 999px;
+  padding:10px 14px;
+  background: rgba(0,0,0,.25);
+  color: var(--txt);
+  cursor:pointer;
+  font-weight:800;
+  letter-spacing:.02em;
+  transition: transform .08s ease, background .15s ease, border-color .15s ease;
+}
+.btn:hover{background: rgba(255,255,255,.07); border-color: rgba(255,255,255,.18)}
+.btn:active{transform: translateY(1px)}
+.btn--primary{
+  border-color: rgba(244,180,20,.55);
+  background: rgba(244,180,20,.12);
+}
+.btn--danger{
+  border-color: rgba(254,111,39,.55);
+  background: rgba(254,111,39,.14);
+}
+.btn--ghost{
+  background: rgba(0,0,0,.10);
+}
+.footerRow{
+  display:flex; gap:12px; align-items:center; justify-content:space-between;
+  margin-top:14px;
+  flex-wrap:wrap;
+}
+.diceLog{
+  font-family: var(--mono);
+  color: rgba(255,255,255,.85);
+  padding:8px 10px;
+  border:1px dashed rgba(255,255,255,.20);
+  border-radius: 14px;
+  background: rgba(0,0,0,.22);
+  min-height: 40px;
+  flex:1;
+}
+.sceneHead{display:flex; align-items:baseline; justify-content:space-between; gap:12px; flex-wrap:wrap}
+.sceneText{
+  line-height:1.65;
+  font-size:1.02rem;
+  background: var(--panel2);
+  border:1px solid var(--line);
+  border-radius: 16px;
+  padding:14px 14px;
+  margin:14px 0;
+  white-space: pre-wrap;
+}
+.choices{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap:10px;
+}
+@media (max-width: 720px){
+  .choices{grid-template-columns: 1fr}
+}
+.choiceBtn{
+  text-align:left;
+  border-radius: 16px;
+  padding:14px 14px;
+  background: rgba(0,0,0,.22);
+}
+.choiceBtn b{display:block; margin-bottom:6px}
+.choiceBtn small{color:var(--muted)}
+.tools{
+  display:flex; gap:10px; flex-wrap:wrap;
+  margin-top: 10px;
+}
+dialog{
+  width:min(900px, 92vw);
+  border:1px solid var(--line);
+  border-radius: 18px;
+  padding:0;
+  background: rgba(10,12,16,.92);
+  color: var(--txt);
+  box-shadow: var(--shadow);
+}
+dialog::backdrop{background: rgba(0,0,0,.60)}
+.dlg{padding:14px}
+.dlg__head{display:flex; align-items:center; justify-content:space-between; gap:12px}
+.dlg__body{color: rgba(255,255,255,.88); line-height:1.6}
+.dlg__body h3{margin:12px 0 6px}
+.dlg__body ol{margin:8px 0 0 18px}
+
+/* Combat UI */
+.combatGrid{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap:12px;
+  margin: 12px 0 10px;
+}
+@media (max-width: 720px){
+  .combatGrid{grid-template-columns: 1fr;}
+}
+.combatRow{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin: 10px 0;
+}
+.combatLog{
+  font-family: var(--mono);
+  white-space: pre-wrap;
+  background: rgba(0,0,0,.24);
+  border:1px solid rgba(255,255,255,.12);
+  border-radius: 14px;
+  padding: 12px;
+  min-height: 120px;
+}
+.sceneNav{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  align-items:center;
+  margin-top: 8px;
+}
+.sceneNav input{
+  padding:12px 12px;
+  border-radius:12px;
+  border:1px solid rgba(255,255,255,.12);
+  background: rgba(0,0,0,.35);
+  color: white;
+  font-family: var(--mono);
+  width: 240px;
+  max-width: 100%;
+}
+.choiceHints{
+  margin-top: 10px;
+  padding: 10px 12px;
+  border-radius: 14px;
+  border: 1px dashed rgba(255,255,255,.18);
+  background: rgba(0,0,0,.16);
+  color: rgba(255,255,255,.80);
+  line-height: 1.55;
+  font-size: .95rem;
+}
+.choiceHints b{color: rgba(255,255,255,.92)}
+/* ===== Fix geral: nada pode estourar na horizontal ===== */
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* Ajuda muito em layouts com flex/grid */
+* {
+  box-sizing: border-box;
+  max-width: 100%;
+}
+
+/* Se tiver containers/sections com width travada, isso salva */
+.container, .wrap, .screen, .panel, .card, main {
+  width: 100%;
+  max-width: 100%;
+}
+
+/* ===== Imagem da cena (figure + img) ===== */
+.sceneMedia {
+  width: 100%;
+  margin: 14px 0 10px;
+  border-radius: 16px;
+  overflow: hidden;        /* impede estourar fora do card */
+}
+
+.sceneMedia img {
+  width: 100%;
+  height: auto;            /* mantém proporção */
+  display: block;
+  object-fit: contain;     /* não corta */
+}
+
+/* Se você estiver usando aspect-ratio e isso estiver causando estranheza no mobile,
+   experimente comentar o aspect-ratio. Eu deixaria DESLIGADO assim: */
+/* .sceneMedia img { aspect-ratio: auto; } */
+
+/* ===== Quebra de texto em logs/caixas ===== */
+#diceLog, .combatLog, pre, .choiceHints {
+  white-space: pre-wrap;     /* preserva linhas, mas quebra */
+  word-break: break-word;    /* quebra palavras grandes */
+  overflow-wrap: anywhere;
+}
+
+/* ===== Inputs / botões não estourarem ===== */
+input, button, textarea, select {
+  max-width: 100%;
+}
+
+/* ===== Ajustes mobile (até 720px) ===== */
+@media (max-width: 720px) {
+
+  /* Topbar/HUD/ações em coluna */
+  .topbar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .hud {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  /* Se seus itens da HUD estavam em linha e estourando */
+  .hud__row, .hud__list, .hud__items {
+    flex-wrap: wrap;
+  }
+
+  .hud__item {
+    flex: 1 1 48%;
+    min-width: 140px;
+  }
+
+  /* Ações quebram linha */
+  .actions {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: space-between;
+  }
+
+  .actions .btn {
+    flex: 1 1 48%;
+  }
+
+  /* Grid geral vira 1 coluna */
+  .grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .choices {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Campo "Ir para cena" não estoura */
+  .sceneNav {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .sceneNav input {
+    flex: 1 1 180px;
+  }
+
+  .sceneNav button {
+    flex: 0 0 auto;
+  }
+}
