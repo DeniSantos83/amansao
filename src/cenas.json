@@ -1855,7 +1855,12 @@
   "136": {
     "id": 136,
     "text": "Você teve sorte ou azar? Se teve sorte,\n\nconseguiu escapar dos estilhaços de vidro sem\n\nse machucar. Se teve azar, o vidro cortou seu\n\npulso - perca 2 pontos de RESISTÊNCIA. Vá agora para a página 317.",
-    "choices": [],
+    "choices": [
+      {
+        "text": "Continuar",
+        "to": 317
+      }
+    ],
     "reviewStatus": "pending_text_review"
   },
   "137": {
