@@ -6,6 +6,9 @@ export function hurt(state, amount) {
   return before - state.stamCur;
 }
 export function settle(c) {
+  if (c.endAt != null && c.remaining <= c.endAt) {
+    c.remaining = c.endAt; c.active = false; c.won = true; c.lastHit = null; return;
+  }
   if (c.remaining > 0) return;
   c.lastHit = null;
   if (c.index + 1 < c.enemies.length) {
@@ -22,26 +25,38 @@ export function round(state, roll = dice) {
   if (!c?.active) return "";
   const e = c.enemies[c.index];
   c.rounds = (c.rounds || 0) + 1;
+  c.totalRounds = (c.totalRounds || 0) + 1;
   const youDice = [roll(), roll()],
     foeDice = [roll(), roll()];
-  const you = youDice[0] + youDice[1] + state.skillCur;
+  const you = youDice[0] + youDice[1] + state.skillCur + (c.skillBonus || 0) - (c.totalRounds <= (c.penaltyUntil || 0) ? c.attackPenalty || 0 : 0);
   const foe = foeDice[0] + foeDice[1] + e.skill;
   c.lastHit = null;
   let message;
   if (c.rounds >= 12) {
-    c.remaining = 0;
+    c.remaining = c.firstWound ? Math.max(0, c.remaining - 2) : 0;
+    if (c.firstWound) { c.active = false; c.won = true; }
     message = "Você encontra uma abertura decisiva e supera o adversário!";
   } else if (you > foe) {
     c.remaining = Math.max(0, c.remaining - 2);
     c.lastHit = "player";
     message = `Ataque ${you} × ${foe}: você causou 2 de dano.`;
   } else if (foe > you) {
-    c.damageTaken = hurt(state, 2);
+    c.hitsTaken = (c.hitsTaken || 0) + 1;
+    c.damageTaken = hurt(state, c.fire ? 3 : 2);
     c.lastHit = "enemy";
     message = `Ataque ${you} × ${foe}: perdeu ${c.damageTaken} de Resistência.${state.stamCur === 1 ? " Você resiste por um fio!" : ""}`;
   } else message = `Ataque ${you} × ${foe}: empate.`;
   // Estes encontros terminam no primeiro ferimento, conforme o texto.
-  if (c.firstWound && c.lastHit === "player") c.remaining = 0;
+  if (c.firstWound && c.lastHit === "player") {
+    c.active = false; c.won = true; c.lastHit = null;
+    message += " O primeiro ferimento encerra esta etapa da luta.";
+  }
+  if (c.endAt != null && c.remaining <= c.endAt) { c.remaining = c.endAt; c.active = false; c.won = true; c.lastHit = null; }
+  if (c.roundLimit && c.rounds >= c.roundLimit) { c.active = false; c.won = true; c.lastHit = null; }
+  if (c.warnAfterHits && !c.warned && c.hitsTaken >= c.warnAfterHits && c.remaining > 0) {
+    c.active = false; c.paused = true; c.lastHit = null;
+    message += " Continue para ler o aviso sobre o carniçal.";
+  }
   c.lastRoll = { youDice, foeDice, you, foe, message };
   settle(c);
   return message;
@@ -60,7 +75,7 @@ export function luck(state, roll = dice) {
   else if (ok)
     state.stamCur = Math.min(
       state.stamMax,
-      state.stamCur + Math.max(0, (c.damageTaken || 0) - 1),
+      state.stamCur + Math.max(0, (c.damageTaken || 0) - (c.fire ? 0 : 1)),
     );
   else hurt(state, 1);
   c.lastHit = null;

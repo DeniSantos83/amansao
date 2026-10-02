@@ -94,7 +94,8 @@
     "id": 7,
     "text": "A campainha não abre um painel escondido, nem revela qualquer outra forma de fuga. Ao tocá-la, um sino começa a tocar por toda a casa! Você esconde o rosto nas mãos. Em poucos instantes, você será capturado pelo maligno Conde de Drumer, seus adoradores do diabo e servos. E desta vez você não escapará…",
     "choices": [],
-    "reviewStatus": "reviewed_sample"
+    "reviewStatus": "reviewed_sample",
+    "ending": "defeat"
   },
   "8": {
     "id": 8,
@@ -719,22 +720,23 @@
     "text": "Se você deseja procurar por passagens secretas, vá para 276.\n\nCaso contrário, retorne à última referência e escolha\n\nnovamente.",
     "choices": [
       {
-        "text": "Continuar",
+        "text": "Procurar portas secretas",
         "to": 276
+      },
+      {
+        "text": "Voltar e escolher outra opção",
+        "to": "previous",
+        "returnPrevious": true
       }
     ],
     "reviewStatus": "pending_text_review"
   },
   "52": {
     "id": 52,
-    "text": "O Demônio do Inferno avança e ataca você\n\ncom suas garras, agarrando seu braço com tanta força\n\nque o quebra. Você grita e agarra seu braço ferido\n\nagora inútil na batalha. Mas sua agonia\n\nserá de curta duração. Pois nada que você faça derrotará\n\nesta criatura sobrenatural. A batalha — e sua vida —\n\nem breve chegará ao fim...\n\nVocê tenta se esquivar, mas a cadeira é muito rápida para\n\nvocê. Ela atinge sua canela, fazendo você uivar\n\nde dor. Perca 2 pontos de RESISTÊNCIA e adicione também 1 ponto de MEDO\n\npela experiência perturbadora. É melhor\n\nsair da sala antes que o POLTERGEIST o machuque\n\nmais gravemente! Vá para 2.",
-    "choices": [
-      {
-        "text": "Continuar",
-        "to": 2
-      }
-    ],
-    "reviewStatus": "pending_text_review"
+    "text": "O Demônio do Inferno avança e ataca você\n\ncom suas garras, agarrando seu braço com tanta força\n\nque o quebra. Você grita e agarra seu braço ferido\n\nagora inútil na batalha. Mas sua agonia\n\nserá de curta duração. Pois nada que você faça derrotará\n\nesta criatura sobrenatural. A batalha — e sua vida —\n\nem breve chegará ao fim...",
+    "choices": [],
+    "reviewStatus": "pending_text_review",
+    "ending": "defeat"
   },
   "53": {
     "id": 53,
@@ -752,8 +754,12 @@
     "text": "Há duas portas que saem do escritório.\n\nVocê entrou pela sala de estar? Se sim, você pode\n\nsair pela outra porta (vá para 247). Se você\n\nentrou pelo corredor, agora pode sair\n\npela outra porta, virando para a página 353.",
     "choices": [
       {
-        "text": "Continuar",
+        "text": "Sair pela outra porta (se veio da sala de estar)",
         "to": 247
+      },
+      {
+        "text": "Sair para o corredor (se veio do corredor)",
+        "to": 353
       }
     ],
     "reviewStatus": "pending_text_review"
@@ -884,7 +890,12 @@
   "64": {
     "id": 64,
     "text": "Os Espíritos do Fogo te seguem enquanto você recua em direção à\n\njanela. Fingindo estar apavorado, você se dirige para\n\num dos suportes de vasos de plantas e tenta se esconder\n\natrás dele. Mas quando os Espíritos estão perto o suficiente,\n\nvocê ataca! Agarrando o vaso grande em cima do\n\nsuporte, você joga o conteúdo sobre as criaturinhas! A terra as cobre e apaga suas\n\nchamas; em um instante elas desaparecem.\n\nVá agora para a página 375.",
-    "choices": [],
+    "choices": [
+      {
+        "text": "Continuar",
+        "to": 375
+      }
+    ],
     "reviewStatus": "pending_text_review"
   },
   "65": {
@@ -913,7 +924,8 @@
     "id": 67,
     "text": "A adaga não lhe serve de nada nesta situação; mas\n\ne o frasco de líquido? Você segura o frasco e\n\nexamina o conteúdo. O líquido preto e viscoso, em movimento, é espesso\n\ne oleoso. Padrões e reflexos de arco-íris enganam\n\nseus olhos. Você poderia jurar que estava\n\nolhando diretamente para um par de olhos escuros dentro do\n\nfrasco! Mas você gira o líquido mais uma vez e a\n\nimagem desaparece. Você imagina que não tem nada\n\na perder ao abrir o frasco, então remove\n\na rolha. O que acontece a seguir é instantâneo!\n\nAssim que a rolha sai do gargalo do frasco,\n\no líquido se transforma em uma fumaça preta e densa, que\n\nsibila e preenche o cômodo. O cômodo fica escuro\n\ninstantaneamente. Rapidamente, a fumaça é sugada de volta\n\npara o frasco e a rolha reaparece em sua posição.\n\nTudo está como antes, com uma exceção. Você não está mais\n\nno cômodo! Seu corpo foi sugado para dentro\n\ndo frasco pelo NANKA ~ um tipo de Gênio Maligno —\n\nque vive dentro dele. Sua aventura termina aqui.",
     "choices": [],
-    "reviewStatus": "pending_text_review"
+    "reviewStatus": "pending_text_review",
+    "ending": "defeat"
   },
   "68": {
     "id": 68,
@@ -948,7 +960,12 @@
   "70": {
     "id": 70,
     "text": "Você caminha lentamente e estende a mão para pegar o lençol. Ele agora está suspenso no ar, bem acima da caixa que estava cobrindo. Você o segura na mão e o puxa para baixo.\nEle estala, confirmando suas suspeitas. O lençol estava sendo puxado por um fio fino.\nVocê respira aliviado (pode deduzir o ponto de\nMEDO que acabou de perder). Mas quem, ou o quê,\nestava puxando o lençol? Você decide não esperar para descobrir.\nSaia do quarto virando para a página 329.",
-    "choices": [],
+    "choices": [
+      {
+        "text": "Sair do quarto",
+        "to": 329
+      }
+    ],
     "reviewStatus": "pending_text_review"
   },
   "71": {
@@ -1035,8 +1052,13 @@
   },
   "77": {
     "id": 77,
-    "text": "Você tenta a maçaneta, mas ela não se move! Você está\ntrancado na sala. Um arrepio de ansiedade percorre\nvocê. Adicione 1 ponto de MEDO. A menos que você encontre uma saída,\nvocê está preso. Talvez haja uma pista na\ncaixa na lareira. Vá para q0.",
-    "choices": [],
+    "text": "Você tenta a maçaneta, mas ela não se move! Você está\ntrancado na sala. Um arrepio de ansiedade percorre\nvocê. Adicione 1 ponto de MEDO. A menos que você encontre uma saída,\nvocê está preso. Talvez haja uma pista na\ncaixa na lareira. Vá para 40.",
+    "choices": [
+      {
+        "text": "Examinar a caixa na lareira",
+        "to": 40
+      }
+    ],
     "reviewStatus": "pending_text_review"
   },
   "78": {
@@ -1095,7 +1117,8 @@
     "id": 82,
     "text": "Não há como você abrir a porta, pois\n\nela só abrirá e fechará ao comando do\n\nConde de Drumer. Agora você é prisioneiro dele e\n\npermanecerá preso pelo resto da vida dentro destas\n\nquatro paredes.",
     "choices": [],
-    "reviewStatus": "pending_text_review"
+    "reviewStatus": "pending_text_review",
+    "ending": "defeat"
   },
   "83": {
     "id": 83,
@@ -1260,8 +1283,12 @@
     "text": "Seus olhos brilham ao ver o conhaque. Você\n\ncoloca um pouco na tampa do frasco de bolso e o entrega a\n\nele. Ele o engole e lambe os lábios. Depois de mais duas\n\ntampas, ele definitivamente está falando arrastado.\n\nVocê lhe diz que ouviu falar de passagens secretas\n\nno porão e que ficaria muito\n\ninteressado em ser guiado por alguém tão\n\nconhecedor quanto ele. Seus elogios e o conhaque surtem o efeito desejado. Orgulhosamente, ele lhe conta tudo\n\nsobre suas adegas — muito mais do que deveria. “É claro que nem todos conseguem entrar nessas adegas”, ele\n\nse vangloria. “É preciso saber a senha para passar\n\npor algumas das portas secretas. E o Mestre\n\nfica mudando a senha para proteger seus segredos.\n\nNa verdade, ontem mesmo ele mudou a senha\n\nde Pravemi para... Ah, qual era mesmo? Está na\n\nponta da minha língua. Ah, eu deveria me lembrar,\n\nporque é parecido com o nome da casa, só que misturado!\n\nMinha mente está confusa! Deve ser você e seu\n\nconhaque!” Ele dá um passo para trás, percebendo que já disse\n\no suficiente. Você tenta perguntar mais, mas ele não\n\nfala. Em vez disso, ele se vira para a porta na\n\nparede à esquerda e o deixa, apontando para o\n\ncorredor e murmurando algo sobre o andar de cima.\n\nVire para 393 para seguir a passagem ou para 166 para\n\nolhar ao redor.",
     "choices": [
       {
-        "text": "Continuar",
+        "text": "Seguir a passagem",
         "to": 393
+      },
+      {
+        "text": "Explorar os arredores",
+        "to": 166
       }
     ],
     "reviewStatus": "pending_text_review"
@@ -1473,7 +1500,7 @@
   },
   "109": {
     "id": 109,
-    "text": "Você consegue derrotar o demônio que agora está diante de\n\nvocê? Se não, ele certamente o matará. Mas você tem\n\nconsigo a faca Kris, a única arma que\n\nferirá a criatura. Você pode adicionar 6 pontos à sua\n\npontuação de HABILIDADE ao usar esta arma. Agora resolva\n\nesta batalha:\n\nHABILIDADE DE DEMÔNIO INFERNAL 14 RESISTÊNCIA 12\n\nSe você vencer a luta, se transformará em gosma.",
+    "text": "Você consegue derrotar o demônio que agora está diante de\n\nvocê? Se não, ele certamente o matará. Mas você tem\n\nconsigo a faca Kris, a única arma que\n\nferirá a criatura. Você pode adicionar 6 pontos à sua\n\npontuação de HABILIDADE ao usar esta arma. Agora resolva\n\nesta batalha:\n\nHABILIDADE DE DEMÔNIO INFERNAL 14 RESISTÊNCIA 12\n\nSe você vencer a luta, vá para 400.",
     "choices": [
       {
         "text": "Continuar",
@@ -1487,11 +1514,7 @@
     "text": "As cortinas estão fechadas na janela e você\n\nse aproxima cautelosamente. Você toca delicadamente as dobras da\n\ncortina e fica aliviado ao não encontrar nada lá.\n\nEmbora pareçam seguras, você ainda está em alerta\n\nenquanto as abre. Ao fazer isso, um\n\ntrovão ecoa lá fora e te faz pular.\n\nMas você está seguro; uma janela perfeitamente comum está\n\ndescoberta. No entanto, as pesadas grades de ferro do lado de fora são um pouco preocupantes. Através da janela,\n\nvocê não vê nada além da chuva escorrendo pelo\n\nvidro. Mas curiosamente, a chuva está evitando uma área específica. Será que o vento está levando a chuva\n\npara longe deste canto? Você se abaixa para dar uma\n\nolhada mais de perto. Escrita na condensação que se formou no\n\nvidro está uma mensagem! Você lê três\n\npalavras: ‘Mordana em Abaddon’. Você repete esta mensagem\n\npara si mesmo e depois a apaga da janela,\n\ncaso alguém mais a veja. Esta mensagem pode ser\n\nútil para você (e você perceberá quando for). Se,\n\nmais tarde na aventura, você quiser usar a mensagem,\n\nconsulte a referência 88. Não consulte a 88 agora! Agora você\n\ndeve voltar para o patamar e virar à esquerda. Consulte a\n\npágina 193.",
     "choices": [
       {
-        "text": "Seguir para a cena 88",
-        "to": 88
-      },
-      {
-        "text": "Seguir para a cena 193",
+        "text": "Voltar ao patamar",
         "to": 193
       }
     ],
@@ -1739,10 +1762,14 @@
   },
   "127": {
     "id": 127,
-    "text": "‘Vamos lá, então’, diz ele alegremente. ‘Vamos. Estou\n\npronto.’ Você não tem certeza se deve entrar no jogo\n\ncom ele ou não. Você pergunta se ele tem certeza de\n\nsaber para onde está indo. ‘Ah, se sei, se sei’,\n\nele ri, caminhando até você. ‘Mas com certeza absoluta\n\nnão vou descer lá sem lutar!’ E com essas\n\npalavras, ele puxa uma faca de sua túnica e ataca\n\nvocê. Resolva esta batalha:\n\nHABILIDADE DO HOMEM DE BRANCO 7 RESISTÊNCIA Q\n\nSe desejar poupar a vida dele, você pode se virar para 359\n\nquando tiver reduzido a resistência dele a 2 pontos. Se\n\nvocê decidir acabar com ele, vá para 366.",
+    "text": "‘Vamos lá, então’, diz ele alegremente. ‘Vamos. Estou\n\npronto.’ Você não tem certeza se deve entrar no jogo\n\ncom ele ou não. Você pergunta se ele tem certeza de\n\nsaber para onde está indo. ‘Ah, se sei, se sei’,\n\nele ri, caminhando até você. ‘Mas com certeza absoluta\n\nnão vou descer lá sem lutar!’ E com essas\n\npalavras, ele puxa uma faca de sua túnica e ataca\n\nvocê. Resolva esta batalha:\n\nHABILIDADE DO HOMEM DE BRANCO 7 RESISTÊNCIA 9\n\nSe desejar poupar a vida dele, você pode se virar para 359\n\nquando tiver reduzido a resistência dele a 2 pontos. Se\n\nvocê decidir acabar com ele, vá para 366.",
     "choices": [
       {
-        "text": "Continuar",
+        "text": "Poupar a vida do adversário",
+        "to": 359
+      },
+      {
+        "text": "Acabar com ele",
         "to": 366
       }
     ],
@@ -1951,7 +1978,7 @@
   },
   "143": {
     "id": 143,
-    "text": "Você caminha até a próxima cela. O som de passos\ndo lado de fora da porta faz você se virar rapidamente. Quatro\nhomens vestidos com túnicas brancas e usando cabeças de cabra\naparecem na porta. 'Eu te disse!', diz um deles. 'Eu\nsabia que podia ouvir alguma coisa. Parece que alguém\nquer libertar nossos prisioneiros. Vamos lá, irmãos?\nEles correm em sua direção e você deve resolver sua\nbatalha com o líder deles, que ataca primeiro:\nHABILIDADE DE LÍDER 8 RESISTÊNCIA Q\nSe você vencer, vá para 301.",
+    "text": "Você caminha até a próxima cela. O som de passos\ndo lado de fora da porta faz você se virar rapidamente. Quatro\nhomens vestidos com túnicas brancas e usando cabeças de cabra\naparecem na porta. 'Eu te disse!', diz um deles. 'Eu\nsabia que podia ouvir alguma coisa. Parece que alguém\nquer libertar nossos prisioneiros. Vamos lá, irmãos?\nEles correm em sua direção e você deve resolver sua\nbatalha com o líder deles, que ataca primeiro:\nHABILIDADE DE LÍDER 8 RESISTÊNCIA 9\nSe você vencer, vá para 301.",
     "choices": [
       {
         "text": "Continuar",
@@ -2100,7 +2127,7 @@
   },
   "154": {
     "id": 154,
-    "text": "Você tenta a porta do quarto de Asmodeus. Está trancada,\nmas a chave está na fechadura. Você a gira e entra em um\nquarto pouco iluminado. Uma única vela está acesa sobre uma mesa\nno fundo do quarto, em frente a uma janela.\n\nDuas caixas de embalagem foram viradas de cabeça para baixo\npara fazer assentos de cada lado da mesa e não há\nnenhum outro móvel. Seus ouvidos se aguçam ao ouvir um arrastar\natrás de você e você se vira bruscamente em direção à\nporta. Um grito alto vem de trás da porta\ne um homem de cabelos brancos e espessos se atira em sua direção\n! Ele está vestido com um longo manto cinza-escuro\ne antes que você possa se esquivar, ele está em cima de\nvocê! Adicione 1 ponto de MEDO. Resolva sua batalha com\nele:\nHABILIDADE DO HOMEM DE CABELOS BRANCOS 7 RESISTÊNCIA\nQuando você tiver infligido seu primeiro ferimento nele,\nvá para a página 162.",
+    "text": "Você tenta a porta do quarto de Asmodeus. Está trancada,\nmas a chave está na fechadura. Você a gira e entra em um\nquarto pouco iluminado. Uma única vela está acesa sobre uma mesa\nno fundo do quarto, em frente a uma janela.\n\nDuas caixas de embalagem foram viradas de cabeça para baixo\npara fazer assentos de cada lado da mesa e não há\nnenhum outro móvel. Seus ouvidos se aguçam ao ouvir um arrastar\natrás de você e você se vira bruscamente em direção à\nporta. Um grito alto vem de trás da porta\ne um homem de cabelos brancos e espessos se atira em sua direção\n! Ele está vestido com um longo manto cinza-escuro\ne antes que você possa se esquivar, ele está em cima de\nvocê! Adicione 1 ponto de MEDO. Resolva sua batalha com\nele:\nHABILIDADE DO HOMEM DE CABELOS BRANCOS 7 RESISTÊNCIA 9\nQuando você tiver infligido seu primeiro ferimento nele,\nvá para a página 162.",
     "choices": [
       {
         "text": "Continuar",
@@ -2349,13 +2376,15 @@
     "id": 171,
     "text": "Seus esforços são em vão. Você não consegue se libertar\n\ndos lençóis e do travesseiro, que estão se enrolando\n\nem seu corpo e rosto. Eventualmente,\n\nvocê cai de volta na cama. Você foi vítima\n\ndo mal que habita a Casa de Drumer.",
     "choices": [],
-    "reviewStatus": "pending_text_review"
+    "reviewStatus": "pending_text_review",
+    "ending": "defeat"
   },
   "172": {
     "id": 172,
     "text": "A cautela deveria ter prevalecido sobre o apetite. Pois na\n\nCasa de Drumer, queijo e vinho branco\n\nnão são recomendados, pelo simples motivo de que qualquer um\n\nque comer queijo ou beber vinho branco pagará\n\na pena. Eles estão envenenados! Este é o fim da\n\nsua aventura.",
     "choices": [],
-    "reviewStatus": "pending_text_review"
+    "reviewStatus": "pending_text_review",
+    "ending": "defeat"
   },
   "173": {
     "id": 173,
@@ -2466,15 +2495,20 @@
     "id": 180,
     "text": "A visão diante de você é a última que você verá. O\nferimento que você acabou de sofrer e a transformação aterrorizante do mordomo são mais do que você pode\nsuportar. Franklins não existe mais. Sua casca humana\nse dissolveu e ele agora está diante de você como seu verdadeiro\neu - uma forma demoníaca horrenda cercada por uma\nnuvem de vapor. Vapor sibila de sua boca e\nsangue — seu próprio sangue — pinga, não de uma faca,\nmas de uma enorme garra selvagem que é sua mão direita.\nEnquanto você cai moribundo no chão, esta criatura do\ninferno avança para esmagá-lo com seus cascos de cabra.\nVocê pode ter derrotado o Conde de Drumer,\nmas não O MESTRE…",
     "choices": [],
-    "reviewStatus": "pending_text_review"
+    "reviewStatus": "pending_text_review",
+    "ending": "defeat"
   },
   "181": {
     "id": 181,
     "text": "O mordomo grita quando seu golpe o atinge. O\nhomem obviamente não é do tipo violento, pois a agonia\nem sua voz certamente não é justificada pelo seu\ngolpe modesto. Seu grito continua! Torna-se ensurdecedor\ne você é forçado a recuar e cobrir os ouvidos\ncom as mãos. Mas esta não é a angústia de um\nhomem ferido...\nVapor começa a subir do chão e engole o\nmordomo. Sua expressão muda de um grito para um\nrosnado feroz e seus olhos se arregalam. Uma transformação\nestá acontecendo! Diante de seus olhos, a forma de Franklins\ndesfaz-se e é substituída por uma besta demoníaca horrenda!\nVapor sibila de sua boca. Sua pele escamosa\né escura. Suas mãos agora são duas garras cruéis que\ncortam o ar à sua frente. Seus pés se tornaram cascos\n— cascos de cabra. Você deve adicionar 3 pontos de MEDO ao\ntestemunhar a criação deste demônio das\nprofundezas do inferno. Se você ainda estiver vivo, vá para 109 se\nestiver usando a faca Kris, ou 52 se não estiver.",
     "choices": [
       {
-        "text": "Continuar",
+        "text": "Enfrentar o demônio com a faca Kris",
         "to": 109
+      },
+      {
+        "text": "Enfrentar o demônio sem a faca Kris",
+        "to": 52
       }
     ],
     "reviewStatus": "pending_text_review"
@@ -2483,7 +2517,8 @@
     "id": 182,
     "text": "O homem desvia o olhar enquanto você saca sua faca e\nse prepara para atacá-lo. ‘Mais uma vez, obrigado’, ele\ndiz. ‘Não terei outra chance de lhe agradecer.’\nSua mão desce e você precisa fechar\nos olhos ao atacá-lo. Mas sua faca nunca\natinge o alvo. Uma mão forte agarra seu pulso\na centímetros do peito do homem e aperta com força. Você\nabre os olhos e vê o homem sorrindo para você\ndiabolicamente. Ele te enganou! Ele não tinha intenção de\ntirar a própria vida. Ele simplesmente queria uma arma para usar\ncontra seus carcereiros, uma arma que você agora\nforneceu a ele! Ele bate seu pulso contra as\ngrades, forçando você a soltar a faca dentro da cela.\n\nSua raiva se transforma em medo quando ele não solta\na faca, mas, em vez disso, se abaixa para pegá-la\ne a encosta em sua garganta. ‘Sinto muito,\nmeu amigo’, diz ele, ‘mas não posso arriscar que você conte\naos outros que agora estou armado. Meus amigos e eu\nprecisamos de nossa liberdade a qualquer custo. Nós a teremos\nquando nosso carcereiro retornar com nossa próxima refeição. Lamento\nprofundamente que o preço de nossa liberdade seja tão alto\n— para você.’ E com essas palavras, sua lâmina corta\nfundo. Sua aventura termina aqui.",
     "choices": [],
-    "reviewStatus": "pending_text_review"
+    "reviewStatus": "pending_text_review",
+    "ending": "defeat"
   },
   "183": {
     "id": 183,
@@ -2532,8 +2567,13 @@
   },
   "186": {
     "id": 186,
-    "text": "Este Ghoul tem a habilidade de paralisá-lo se conseguir\ninfligir quatro ferimentos durante uma luta. Você está\nna metade do caminho e deve ser muito cuidadoso ao\ncontinuar a batalha; mais dois ferimentos e você\nmorrerá. Agora retorne para 126 e termine a luta.",
-    "choices": [],
+    "text": "O carniçal possui um toque paralisante. Você já sofreu dois ferimentos e sente seus músculos enrijecerem. Nesta aventura, esse efeito torna a luta mais difícil, mas não encerra sua vida: você ainda pode superar a criatura. Volte para 126 e continue o mesmo combate.",
+    "choices": [
+      {
+        "text": "Retomar o combate",
+        "to": 126
+      }
+    ],
     "reviewStatus": "pending_text_review"
   },
   "187": {
@@ -2541,8 +2581,12 @@
     "text": "Enquanto você se arrasta pela parede, alguém no grupo\ngrita. Você foi avistado. Todos os olhares se voltam\npara você e a reunião profana avança para\ncercá-lo. Você está preso. Você tentará\nlutar para escapar (vá para 365) ou tem\nalgo mais que possa usar? Se sim, use.",
     "choices": [
       {
-        "text": "Continuar",
+        "text": "Lutar para escapar",
         "to": 365
+      },
+      {
+        "text": "Usar o pentagrama (se estiver com ele)",
+        "to": 66
       }
     ],
     "reviewStatus": "pending_text_review"
@@ -2565,7 +2609,12 @@
   "189": {
     "id": 189,
     "text": "Os olhos do Vampiro brilham quando você abre a porta.\nEmbora você não soubesse, era exatamente isso que ele\nesperava! Conforme a luz da sala incide\nsobre os rostos dos dois escravos mortos-vivos do Vampiro,\nseus olhos se abrem e eles saem do armário\nem sua direção. Os rostos horrendos, cinza-esverdeados e em decomposição de dois ZUMBIS seguem você enquanto você se afasta deles. \"Ataquem! Ataquem!\", grita o Vampiro.\n\nEles obedecem. Resolva seu combate com eles, um de cada vez:\nPrimeiro ZUMBI HABILIDADE 7 RESISTÊNCIA 6\nSeu Segundo ZUMBI HABILIDADE 6 RESISTÊNCIA 6\nSe você derrotar os Zumbis, vá para o turno 20.",
-    "choices": [],
+    "choices": [
+      {
+        "text": "Continuar após vencer os zumbis",
+        "to": 20
+      }
+    ],
     "reviewStatus": "pending_text_review"
   },
   "190": {
@@ -2717,7 +2766,8 @@
     "id": 201,
     "text": "Você é colocado dentro da pequena gaiola e içado\n\nno ar. Que lugar horrível para passar seus\n\ndias. A gaiola é grande o suficiente para você se sentar dentro,\n\ncom os joelhos quase encostados no peito. Mas você é\n\nimpossível se esticar. Quando a cãibra começar, seu\n\ndestino será longo, lento e doloroso, para o\n\ndeleite do torturador e seus assistentes...",
     "choices": [],
-    "reviewStatus": "pending_text_review"
+    "reviewStatus": "pending_text_review",
+    "ending": "defeat"
   },
   "202": {
     "id": 202,
@@ -2748,19 +2798,38 @@
   "204": {
     "id": 204,
     "text": "Deseja tentar a outra porta (girar para 92) ou\n\nprefere voltar pelo espelho\n\n(girar para 349)?",
-    "choices": [],
+    "choices": [
+      {
+        "text": "Tentar a outra porta",
+        "to": 92
+      },
+      {
+        "text": "Voltar pelo espelho",
+        "to": 349
+      }
+    ],
     "reviewStatus": "pending_text_review"
   },
   "205": {
     "id": 205,
     "text": "A porta está firmemente trancada. Tente a porta oposta\n\ngirando para 118.",
-    "choices": [],
+    "choices": [
+      {
+        "text": "Tentar a porta oposta",
+        "to": 118
+      }
+    ],
     "reviewStatus": "pending_text_review"
   },
   "206": {
     "id": 206,
     "text": "Não há sinais de armadilhas. Chame o\n\nmordomo girando para 318.",
-    "choices": [],
+    "choices": [
+      {
+        "text": "Chamar o mordomo",
+        "to": 318
+      }
+    ],
     "reviewStatus": "pending_text_review"
   },
   "207": {
@@ -2780,8 +2849,13 @@
   },
   "208": {
     "id": 208,
-    "text": "“Não acredito!”, exclama ele. “Minhas orações\n\nforam atendidas? Posso me juntar a vocês? Por favor, vocês devem\n\nme permitir ir com vocês. Posso ser de grande ajuda para\n\nvocês.” Você diz a ele que ele é certamente bem-vindo para ajudar em\n\nsua fuga e pergunta como ele foi parar nesta\n\nárea escondida. “Você sabe sobre os sacrifícios?”, ele\n\npergunta. “Bem, estou reservado para a próxima cerimônia. Eu\n\nfazia parte do clã do Mestre, mas minha consciência\n\nnão me permite mais viver com o mal que isso acarreta.\n\nMas o clã não pode permitir desertores.” Fui condenado\n\nà morte — morte por sacrifício! Juntos,\n\ndevemos destruir Kelnor, o Mestre. Eu sei como isso pode ser feito! Kelnor só pode ser morto com a adaga Kris,\n\nque está escondida em algum lugar da casa.\n\nE ele deve ser invocado em uma sala vermelha. Vamos\n\nconcordar em livrar o mundo deste monstro humano e sua\n\nseita maligna! Seria tolice recusar a ajuda\n\ne concordar. Você pode adicionar 1 ponto de Sorte por esta\n\ninformação. Um ruído do lado de fora interrompe a conversa.",
-    "choices": [],
+    "text": "“Não acredito!”, exclama ele. “Minhas orações\n\nforam atendidas? Posso me juntar a vocês? Por favor, vocês devem\n\nme permitir ir com vocês. Posso ser de grande ajuda para\n\nvocês.” Você diz a ele que ele é certamente bem-vindo para ajudar em\n\nsua fuga e pergunta como ele foi parar nesta\n\nárea escondida. “Você sabe sobre os sacrifícios?”, ele\n\npergunta. “Bem, estou reservado para a próxima cerimônia. Eu\n\nfazia parte do clã do Mestre, mas minha consciência\n\nnão me permite mais viver com o mal que isso acarreta.\n\nMas o clã não pode permitir desertores.” Fui condenado\n\nà morte — morte por sacrifício! Juntos,\n\ndevemos destruir Kelnor, o Mestre. Eu sei como isso pode ser feito! Kelnor só pode ser morto com a adaga Kris,\n\nque está escondida em algum lugar da casa.\n\nE ele deve ser invocado em uma sala vermelha. Vamos\n\nconcordar em livrar o mundo deste monstro humano e sua\n\nseita maligna! Seria tolice recusar a ajuda\n\ne concordar. Você pode adicionar 1 ponto de Sorte por esta\n\ninformação. Um ruído do lado de fora interrompe a conversa. Alguém está chegando! Vá para 87.",
+    "choices": [
+      {
+        "text": "Continuar",
+        "to": 87
+      }
+    ],
     "reviewStatus": "pending_text_review"
   },
   "209": {
@@ -2809,14 +2883,18 @@
   },
   "210": {
     "id": 210,
-    "text": "Ao sair da sala, o Corcunda manca,\n\nresmungando para si mesmo: \"Quem me dera os amigos do Mestre\n\nnão aparecessem assim de repente\", murmura ele,\n\n\"me dando um susto desses. Principalmente numa noite\n\ncomo esta...\" Ele o guia até\n\nchegar a uma porta à esquerda. \"Continue até\n\nchegar a uma escada e suba para dentro da casa. Tenho\n\ntrabalho a fazer aqui embaixo.\" Você reconhece este\n\nCorcunda? Já o encontrou antes? Se sim,\n\nvocê pode ir para a página 230. Caso contrário, você pode seguir as\n\ninstruções dele (vá para a página 3g3) ou esperar até que ele vá embora e\n\nexplorar o porão (vá para a página 166).",
+    "text": "Ao sair da sala, o Corcunda manca,\n\nresmungando para si mesmo: \"Quem me dera os amigos do Mestre\n\nnão aparecessem assim de repente\", murmura ele,\n\n\"me dando um susto desses. Principalmente numa noite\n\ncomo esta...\" Ele o guia até\n\nchegar a uma porta à esquerda. \"Continue até\n\nchegar a uma escada e suba para dentro da casa. Tenho\n\ntrabalho a fazer aqui embaixo.\" Você reconhece este\n\nCorcunda? Já o encontrou antes? Se sim,\n\nvocê pode ir para a página 230. Caso contrário, você pode seguir as\n\ninstruções dele (vá para a página 393) ou esperar até que ele vá embora e\n\nexplorar o porão (vá para a página 166).",
     "choices": [
       {
-        "text": "Seguir para a cena 230",
+        "text": "Reconhecer o Corcunda",
         "to": 230
       },
       {
-        "text": "Seguir para a cena 166",
+        "text": "Seguir as instruções dele",
+        "to": 393
+      },
+      {
+        "text": "Esperar e explorar o porão",
         "to": 166
       }
     ],
@@ -2876,7 +2954,7 @@
   },
   "215": {
     "id": 215,
-    "text": "Os dois homens estão tão surpresos quanto você com este encontro, mas você está pronto para atacar. Você larga a caixa de couro e salta para frente. Resolva esta batalha (lute contra os homens um de cada vez):\n\nPrimeiro Homem Habilidade 7 Vigor 8\n\nSegundo Homem Habilidade 8 Vigor 9Q\n\nSe desejar escapar a qualquer momento durante a batalha, após as quatro primeiras rodadas de ataque, você só poderá fazê-lo se jogando através do espelho enquanto eles não estiverem olhando (vá para a página 160). Se você derrotar os\n\ndois homens, vá para 273.",
+    "text": "Os dois homens estão tão surpresos quanto você com este encontro, mas você está pronto para atacar. Você larga a caixa de couro e salta para frente. Resolva esta batalha (lute contra os homens um de cada vez):\n\nPrimeiro Homem Habilidade 7 Vigor 8\n\nSegundo Homem Habilidade 8 Vigor 9\n\nSe desejar escapar a qualquer momento durante a batalha, após as quatro primeiras rodadas de ataque, você só poderá fazê-lo se jogando através do espelho enquanto eles não estiverem olhando (vá para a página 160). Se você derrotar os\n\ndois homens, vá para 273.",
     "choices": [
       {
         "text": "Seguir para a cena 160",
@@ -2942,7 +3020,8 @@
     "id": 219,
     "text": "Enquanto os outros seguem pelo corredor, você\n\npermanece no final da multidão. Quando os últimos\n\nestão saindo da sala, outro homem irrompe pela\n\nporta, ofegante e ofegante. “Ótimo, não estou muito atrasado”, ele ofega. “Por um minuto achei que ia perder! Vamos ver. Onde estão meu vestido e minha máscara?” Seu sangue gela quando o homem começa a procurar na área onde você pegou sua fantasia. “Sumiram!”, ele diz.\n\n“Esperem, irmãos, alguém pegou meu vestido. Ah, aqui está minha máscara. Desculpe, irmão, você deve tê-la pegado por engano. Eu a reconheço muito bem pelo dente quebrado. Aqui, me dê.”\n\nO homem arranca a máscara da sua cabeça e toda a atenção se volta para você. “Aqui, quem é você?”,\n\npergunta alguém. Sua resposta hesitante entrega o jogo. “Recuem, irmãos!”, grita uma voz. “Parece que temos um intruso entre nós.” Uma dúzia de homens volta para a sala e o cerca. Você não tem\n\nescolha senão ir com eles até a cela onde eles\n\no trancam. Esta é uma cela da qual não há\n\nescapada; sua aventura acabou.",
     "choices": [],
-    "reviewStatus": "pending_text_review"
+    "reviewStatus": "pending_text_review",
+    "ending": "defeat"
   },
   "220": {
     "id": 220,
@@ -3028,8 +3107,12 @@
     "text": "Você aperta o botão. Ele faz um clique e você ouve um\n\nestrondo vindo de trás da estante. Lentamente, a\n\nestante desliza para o lado, revelando uma passagem atrás\n\ndela. Se desejar descer pela passagem, vire para 241. Se\n\npreferir não arriscar explorar a passagem,\n\nsaia do escritório virando para 54.",
     "choices": [
       {
-        "text": "Continuar",
+        "text": "Descer pela passagem",
         "to": 241
+      },
+      {
+        "text": "Sair do escritório",
+        "to": 54
       }
     ],
     "reviewStatus": "pending_text_review"
@@ -3200,19 +3283,19 @@
     "text": "Você se afasta da porta secreta e diz sua\n\nsenha. Qual palavra você escolherá?\n\nPravemi Vá para 223\n\nCabeça de Cabra Vá para 188\n\nAssassinato Vá para 174\n\nKris Vá para 146",
     "choices": [
       {
-        "text": "Seguir para a cena 223",
+        "text": "Pravemi",
         "to": 223
       },
       {
-        "text": "Seguir para a cena 188",
+        "text": "Cabeça de Cabra",
         "to": 188
       },
       {
-        "text": "Seguir para a cena 174",
+        "text": "Assassinato",
         "to": 174
       },
       {
-        "text": "Seguir para a cena 146",
+        "text": "Kris",
         "to": 146
       }
     ],
@@ -3282,7 +3365,15 @@
     "text": "Alguns passos adiante no corredor, duas\n\nportas estão frente a frente. À direita fica o Quarto de Belial\n\nvocê pode entrar virando para 312.\n\nÀ esquerda fica o Quarto de Abaddon e você pode tentar esta porta\n\nvirando para 335. Caso contrário, você pode continuar\n\npelo corredor e descer as escadas (vire para\n\n132).",
     "choices": [
       {
-        "text": "Continuar",
+        "text": "Entrar no quarto de Belial",
+        "to": 312
+      },
+      {
+        "text": "Tentar o quarto de Abaddon",
+        "to": 335
+      },
+      {
+        "text": "Continuar e descer as escadas",
         "to": 132
       }
     ],
@@ -3311,7 +3402,8 @@
     "id": 245,
     "text": "Você se abaixa no canto da sala para permitir que\n\nele fique em pé sobre seus ombros. De repente, um\n\npensamento lhe ocorre. Por que Rafferty ainda não\n\nescapou subindo na mesa? Você se vira\n\npara perguntar a ele — bem a tempo de ver seu punho atingir\n\nseu queixo! Você cai no chão e Rafferty\n\nsorri. Capturá-lo lhe renderá o\n\nfavor do Mestre mais uma vez. Ele salvou a própria pele miserável,\n\nmas você está prestes a ser feito prisioneiro. Você\n\nVocê passará o resto de seus dias sob a Casa\nde Drumer até que o Mestre se canse de você.",
     "choices": [],
-    "reviewStatus": "pending_text_review"
+    "reviewStatus": "pending_text_review",
+    "ending": "defeat"
   },
   "246": {
     "id": 246,
@@ -3437,18 +3529,23 @@
     "id": 254,
     "text": "Seus temores se confirmam quando a porta se abre. O\n\nbarulho atraiu a atenção de alguns misteriosos\n\namigos do Conde de Drumer. Quatro homens entram na\n\nsala, todos vestidos com túnicas brancas e usando\n\ncabeças de cabra para esconder seus rostos. Eles estão armados\n\ncom facas e pedaços de madeira. Seria tolice\n\nresistir a eles. Agarrando seus pulsos, eles o levam\n\npara o porão. Lá você entra em uma\n\nsala com quatro celas. Três já estão\n\nocupadas, mas a quarta está vazia. Você será\n\ndetido aqui ao bel-prazer do Conde. Sua aventura\n\nterminou.",
     "choices": [],
-    "reviewStatus": "pending_text_review"
+    "reviewStatus": "pending_text_review",
+    "ending": "defeat"
   },
   "255": {
     "id": 255,
     "text": "Você sai do depósito para um corredor. À\n\nsua esquerda, o corredor termina em uma porta que leva à\n\nsala de Shaitan. Se desejar tentar a porta, vire\n\npara 200. Quase em frente está a sala de Mammon, na qual\n\nvocê pode entrar virando para 123. Se não estiver\n\ninteressado em nenhuma delas, volte ao patamar\n\natravés do depósito (vire para 233).",
     "choices": [
       {
-        "text": "Seguir para a cena 200",
+        "text": "Tentar o quarto de Shaitan",
         "to": 200
       },
       {
-        "text": "Seguir para a cena 233",
+        "text": "Entrar no quarto de Mammon",
+        "to": 123
+      },
+      {
+        "text": "Voltar ao patamar",
         "to": 233
       }
     ],
@@ -3712,7 +3809,8 @@
     "id": 274,
     "text": "Você remove a rolha do gargalo do frasco\n\ne cheira o conteúdo. Um odor forte e acre atinge\n\nsuas narinas e você espirra alto e sacode a\n\ncabeça para afastar o cheiro. Rapidamente, você coloca a\n\nrolha de volta no frasco e, tarde demais, vê o\n\nsímbolo gravado no vidro. Uma caveira com ossos cruzados! Você\n\ncheirou um veneno mortal que agora está se espalhando\n\npelo seu organismo. Você sente tontura e o\n\nquarto começa a girar. Tossindo violentamente, você desaba\n\nno chão. A consciência se esvai enquanto seus últimos momentos\n\npassam. Mas talvez esta seja uma fuga misericordiosa\n\ndos terrores da Casa do Inferno.",
     "choices": [],
-    "reviewStatus": "pending_text_review"
+    "reviewStatus": "pending_text_review",
+    "ending": "defeat"
   },
   "275": {
     "id": 275,
@@ -3841,7 +3939,17 @@
   "283": {
     "id": 283,
     "text": "‘Antes de eu responder à sua pergunta’, ela diz, ‘você\n\nprecisa me dizer algo — qual é o meu nome?’ Você\n\nsabe qual é o nome dela? Se sim, você terá anotado\n\num número de referência para consultar, caso ela\n\nlhe faça essa pergunta. Consulte essa referência. Se você não souber o nome dela, ela não responderá à sua\n\npergunta, não importa o que você ameace fazer com as plantas dela; você terá que sair da sala virando para\n\n159.",
-    "choices": [],
+    "choices": [
+      {
+        "text": "Responder com o nome que você descobriu",
+        "to": 88,
+        "requiresVisit": 110
+      },
+      {
+        "text": "Sair sem responder",
+        "to": 159
+      }
+    ],
     "reviewStatus": "pending_text_review"
   },
   "284": {
@@ -4007,7 +4115,11 @@
     "text": "A porta está trancada. Se você tiver alguma chave,\n\npode experimentá-la na fechadura. Você tem uma Chave de Ouro?\n\nSe sim, pode experimentá-la girando para 10. Caso contrário, gire\n\npara 204.",
     "choices": [
       {
-        "text": "Continuar",
+        "text": "Usar a Chave Dourada (se estiver com ela)",
+        "to": 10
+      },
+      {
+        "text": "Tentar outra passagem",
         "to": 204
       }
     ],
@@ -4016,7 +4128,12 @@
   "295": {
     "id": 295,
     "text": "‘Salas secretas?’, ela ri. ‘Ora, esta casa está\n\nrepleta de passagens secretas e salas secretas.\n\nA maioria fica no porão, mas algumas das\n\npassagens do andar de cima levam a elas. A sala secreta mais astuta\n\né o esconderijo mais confiável do Mestre.\n\nSó se pode chegar a ela de uma maneira, e é\n\npor baixo da escada no porão. É necessária uma senha\n\ne eu sabia a antiga, mas ela foi alterada recentemente\n\npara Shekou. Ele saberá a nova senha.\n\n...' Os olhos da mulher se fecham, como se a conversa tivesse sido muito cansativa. Você a deixa em paz\n\ne considera as informações que recebeu.\n\nQuando estiver em posição de encontrar a porta secreta em\n\nquestão (sob a escada do porão), você pode tentar\n\nencontrá-la subtraindo 10 da referência em que estiver naquele momento\n\ne consultando a nova referência. Nenhuma outra pista\n\nsobre sua localização será dada. Mas primeiro você deve\n\nencontrar a senha! Saia da sala consultando\n\n159.",
-    "choices": [],
+    "choices": [
+      {
+        "text": "Sair do quarto",
+        "to": 159
+      }
+    ],
     "reviewStatus": "pending_text_review"
   },
   "296": {
@@ -4098,7 +4215,8 @@
     "id": 301,
     "text": "Embora você derrote o líder deles, não consegue conter\n\nos outros três homens, que o cercam e o capturam.\n\nUm deles foge para pegar as chaves das celas.\n\nQuando ele retorna, você está trancado na quarta cela.\n\nSua aventura termina aqui…",
     "choices": [],
-    "reviewStatus": "pending_text_review"
+    "reviewStatus": "pending_text_review",
+    "ending": "defeat"
   },
   "302": {
     "id": 302,
@@ -4229,8 +4347,13 @@
     "text": "Se desejar procurar portas secretas, vá para 276.\n\nCaso contrário, retorne à última referência e escolha\n\nnovamente.",
     "choices": [
       {
-        "text": "Continuar",
+        "text": "Procurar portas secretas",
         "to": 276
+      },
+      {
+        "text": "Voltar e escolher outra opção",
+        "to": "previous",
+        "returnPrevious": true
       }
     ],
     "reviewStatus": "pending_text_review"
@@ -4367,12 +4490,17 @@
     "text": "Você se abriga embaixo da escada e afasta os morcegos\n\ncom as mãos. Eles logo descobrem que\n\nnão conseguem alcançá-lo enquanto você estiver escondido; e\n\nvoam de volta para o canto de onde\n\nvieram. Quando tudo estiver calmo novamente, você poderá decidir seu\n\npróximo movimento. Você subirá as escadas e abrirá a\n\nporta no topo (vá para 293) ou permanecerá para\n\nexplorar a câmara dos morcegos (vá para 330)?",
     "choices": [
       {
-        "text": "Seguir para a cena 293",
+        "text": "Subir as escadas",
         "to": 293
       },
       {
-        "text": "Seguir para a cena 330",
+        "text": "Explorar a câmara dos morcegos",
         "to": 330
+      },
+      {
+        "text": "Procurar a passagem indicada pela pista",
+        "to": 310,
+        "requiresVisit": 295
       }
     ],
     "reviewStatus": "pending_text_review"
@@ -4382,7 +4510,12 @@
     "text": "“Antes de responder à sua pergunta”, ela diz, “você\n\nprecisa me dizer algo — qual é o meu nome?” Você\n\nsabe qual é o nome dela? Se sim, você terá anotado um\n\nnúmero de referência para consultar, caso lhe façam\n\nessa pergunta. Consulte essa referência. Se você não\n\nsabe o nome dela, ela não responderá à sua pergunta,\n\nnão importa o que você ameace fazer com as plantas dela, e\n\nvocê terá que sair da sala, indo para 159.",
     "choices": [
       {
-        "text": "Continuar",
+        "text": "Responder com o nome que você descobriu",
+        "to": 88,
+        "requiresVisit": 110
+      },
+      {
+        "text": "Sair sem responder",
         "to": 159
       }
     ],
@@ -4408,7 +4541,11 @@
     "text": "A porta está trancada. A maçaneta e a fechadura fazem parte de\n\numa placa de metal ornamentada. Você tem uma chave de ferro fundido\n\ncom você? Se sim, subtraia o número da chave deste número de referência e consulte a referência resultante\n\npara abrir a porta. Caso contrário, você deve tentar\n\na porta oposta — e rapidamente, porque você pode\n\nouvir passos se aproximando do corredor. Vá\n\npara 118.",
     "choices": [
       {
-        "text": "Continuar",
+        "text": "Usar a chave de ferro fundido nº 27 (se estiver com ela)",
+        "to": 296
+      },
+      {
+        "text": "Tentar a porta oposta",
         "to": 118
       }
     ],
@@ -4444,7 +4581,8 @@
     "id": 326,
     "text": "O homem alto abre sua capa. Ele está olhando diretamente\n\nnos seus olhos e suas pupilas escuras parecem perfurar\n\nsua mente. No último minuto, você entra em pânico e tenta\n\nquebrar seu olhar, mas é inútil. Você está sob o controle dele.\n\nEle o cobre com sua capa e sua última\n\nlembrança é uma pontada aguda quando seus dentes cravam em seu\n\npescoço.",
     "choices": [],
-    "reviewStatus": "pending_text_review"
+    "reviewStatus": "pending_text_review",
+    "ending": "defeat"
   },
   "327": {
     "id": 327,
@@ -4465,15 +4603,20 @@
     "id": 328,
     "text": "Você salta para o centro da cerimônia com um grito de guerra estridente. A jovem olha para você esperançosa.\n\nSeu resgate ousado é louvável pela bravura, mas inacreditavelmente estúpido. Pois como você pode esperar resistir a quarenta oponentes?\n\nEles o cercam, o agarram e o sacerdote corta sua garganta com a faca. Você mereceu morrer!",
     "choices": [],
-    "reviewStatus": "pending_text_review"
+    "reviewStatus": "pending_text_review",
+    "ending": "defeat"
   },
   "329": {
     "id": 329,
-    "text": "Do lado de fora da sala de Belial, você tem duas opções. Deseja tentar a sala de Abaddon do outro lado?\n\n(vá para 335) ou prefere ir até a escada e descer furtivamente?",
+    "text": "Do lado de fora da sala de Belial, você tem duas opções. Deseja tentar a sala de Abaddon do outro lado?\n\n(vá para 335) ou prefere ir até a escada e descer furtivamente? Vá para 132 para descer as escadas.",
     "choices": [
       {
-        "text": "Continuar",
+        "text": "Tentar o quarto de Abaddon",
         "to": 335
+      },
+      {
+        "text": "Descer as escadas",
+        "to": 132
       }
     ],
     "reviewStatus": "pending_text_review"
@@ -4501,7 +4644,8 @@
     "id": 331,
     "text": "Embora você lute contra o poder que o atrai para o\n\nlivro, sua força é maior que sua resistência.\n\nGradualmente, sua vontade é vencida. Ao desabar no\n\nchão, seu espírito é sugado para fora do seu corpo e\n\npara dentro do olho. Como as outras vítimas de vontade fraca que\n\njá caíram sob o poder do livro, você está\n\ncondenado a uma vida eterna de agonia preso dentro\n\nda pupila do Olho Hipnótico.",
     "choices": [],
-    "reviewStatus": "pending_text_review"
+    "reviewStatus": "pending_text_review",
+    "ending": "defeat"
   },
   "332": {
     "id": 332,
@@ -4588,13 +4732,31 @@
   "338": {
     "id": 338,
     "text": "A mesa de cabeceira chama sua atenção; particularmente\n\na bandeja de prata. Nela está disposto um lanche para dormir de\n\npão, geleia e chá. Você o examina cuidadosamente e\n\ndecide que deve ser seguro o suficiente. Você se senta na\n\ncama e se serve. Está delicioso! Você pode\n\nadicionar 4 pontos de RESISTÊNCIA e 1 ponto de SORTE por esta\n\ndescoberta. Quando estiver pronto, saia do quarto virando\n\npara 243.",
-    "choices": [],
+    "choices": [
+      {
+        "text": "Sair do quarto",
+        "to": 243
+      }
+    ],
     "reviewStatus": "pending_text_review"
   },
   "339": {
     "id": 339,
     "text": "Você está parado perto de duas portas, e cada uma tem uma\n\nplaca de identificação. À sua frente está o quarto de Asmodeus.\n\nVocê pode tentar esta porta virando para 154. À sua\n\ndireita está o quarto de Eblis, no qual você pode entrar virando\n\npara 125; ou você pode seguir o corredor até que ele\n\nvire à esquerda virando para 252.",
-    "choices": [],
+    "choices": [
+      {
+        "text": "Tentar o quarto de Asmodeus",
+        "to": 154
+      },
+      {
+        "text": "Entrar no quarto de Eblis",
+        "to": 125
+      },
+      {
+        "text": "Seguir o corredor",
+        "to": 252
+      }
+    ],
     "reviewStatus": "pending_text_review"
   },
   "340": {
@@ -4923,7 +5085,8 @@
     "id": 362,
     "text": "Você prova o líquido. É vinho branco! Você bebe\n\nmais um pouco e ele o aquece. Você começa a se sentir um pouco\n\ntonto e com a cabeça leve; então, de repente, sente uma\n\npontada de dor no estômago e se curva.\n\nMas não há alívio para essa dor, porque você\n\nbebeu uma garrafa de vinho envenenado! Em poucos\n\nmomentos, você perderá a consciência e em cinco\n\nminutos estará morto. Você nunca chegará\n\nao compromisso de amanhã...",
     "choices": [],
-    "reviewStatus": "pending_text_review"
+    "reviewStatus": "pending_text_review",
+    "ending": "defeat"
   },
   "363": {
     "id": 363,
@@ -4959,7 +5122,8 @@
     "id": 365,
     "text": "Você lutou bravamente, mas a quantidade de\n\nadoradores do diabo o subjugou. Você foi capturado\n\ne permanecerá assim até sentir a\n\nfaca do sacerdote no altar de sacrifícios — pois você será a próxima\n\nvítima.",
     "choices": [],
-    "reviewStatus": "pending_text_review"
+    "reviewStatus": "pending_text_review",
+    "ending": "defeat"
   },
   "366": {
     "id": 366,
@@ -4986,7 +5150,12 @@
   "368": {
     "id": 368,
     "text": "Não há nada de interessante nos armários. Você\n\npode sair do quarto agora, virando para 243.",
-    "choices": [],
+    "choices": [
+      {
+        "text": "Sair do quarto",
+        "to": 243
+      }
+    ],
     "reviewStatus": "pending_text_review"
   },
   "369": {
@@ -5257,7 +5426,17 @@
   "388": {
     "id": 388,
     "text": "“Antes de responder à sua pergunta”, ela diz, “você precisa me dizer algo: qual é o meu nome?” Você sabe qual é o nome dela? Se sim, você terá anotado um número de referência para consultar, caso seja questionado novamente. Consulte essa referência. Se você não souber o nome dela, ela não responderá à sua pergunta, não importa o que você ameace fazer com as plantas dela, e você deverá sair da sala consultando a página 159.",
-    "choices": [],
+    "choices": [
+      {
+        "text": "Responder com o nome que você descobriu",
+        "to": 88,
+        "requiresVisit": 110
+      },
+      {
+        "text": "Sair sem responder",
+        "to": 159
+      }
+    ],
     "reviewStatus": "pending_text_review"
   },
   "389": {
@@ -5357,7 +5536,8 @@
     "id": 396,
     "text": "A gaiola alta é abaixada da parede. A parte de trás\n\nse abre e você é empurrado para dentro. É apertado e\n\nvocê é forçado contra as grades enquanto a porta é\n\ntrancada atrás de você. Um dos assistentes do torturador\n\nirá você para o ar. Você ficará pendurado, suspenso\n\npor uma corda até que sua sTaMINA se esgote\n\nde fome. Se a fome não cobrar seu preço\n\nrapidamente, as cãibras provavelmente o farão. Pois\n\nembora você esteja de pé, não pode sentar ou\n\nse apoiar na gaiola. Sua aventura está praticamente\n\nacabada…",
     "choices": [],
-    "reviewStatus": "pending_text_review"
+    "reviewStatus": "pending_text_review",
+    "ending": "defeat"
   },
   "397": {
     "id": 397,
@@ -5400,6 +5580,7 @@
     "id": 400,
     "text": "A criatura uiva quando você desfere o golpe final. Ela\n\ncambaleia sobre os cascos e cai sobre a\n\nmesa. Ao cair, seus braços agitados se chocam contra o\n\nlustre no centro da sala, espalhando\n\nvelas pelo chão. Atrás de você, outro\n\ngrito se eleva e seu outro atacante, de quem você\n\njá havia se esquecido completamente, salta até a\n\nmesa para abraçar a besta lamentavelmente. Você deveria matar\n\nambos; mas a criatura patética e soluçante\n\nencurvada sobre o enorme corpo dificilmente merece consideração.\n\nDe qualquer forma, algo mais, muito mais\n\nperigoso, chamou sua atenção. Uma das\n\nvelas que caiu do lustre\n\nrolou pelo chão e incendiou as pesadas\n\ncortinas. O fogo está se espalhando rapidamente — você precisa\n\nescapar depressa!\n\nA fumaça começa a sair da sala enquanto você\n\nfecha a porta da frente atrás de si. Caminhando pela entrada de carros, você olha para trás e vê o fogo se alastrando rapidamente pelo térreo. As chamas lambem as vigas de madeira. Em cerca de uma hora, o lugar estará irrecuperável. De uma distância segura, você observa o fogo destruir a casa. Um fim apropriado, pensa você, para uma casa infernal.",
     "choices": [],
-    "reviewStatus": "pending_text_review"
+    "reviewStatus": "pending_text_review",
+    "ending": "victory"
   }
 }

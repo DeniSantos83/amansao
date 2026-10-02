@@ -52,6 +52,7 @@ const fresh = () => ({
   weaponBonus: 0,
   inventory: [],
   history: [],
+  visited: [],
   clues: [],
   log: [],
   combat: null,
@@ -59,7 +60,7 @@ const fresh = () => ({
 function initial() {
   try {
     const saved = JSON.parse(localStorage.getItem(KEY));
-    if (saved?.scene != null) return { ...fresh(), ...saved };
+    if (saved?.scene != null) return { ...fresh(), ...saved, visited: [...new Set([...(saved.visited || []), ...(saved.history || [])])] };
     const old = JSON.parse(localStorage.getItem("a_mansao_state_v4"));
     if (old?.scene != null && old.name)
       return {
@@ -73,54 +74,7 @@ function initial() {
   } catch {}
   return fresh();
 }
-const special = {
-  236: { enemies: [{ name: "ZUMBI", skill: 7, stam: 6 }] },
-  14: { enemies: [{ name: "DOGUE ALEMÃO", skill: 7, stam: 5 }] },
-  30: { enemies: [{ name: "O CONDE DE DRUMER", skill: 9, stam: 10 }] },
-  41: {
-    enemies: [
-      { name: "Primeiro ESQUELETO", skill: 6, stam: 6 },
-      { name: "Segundo ESQUELETO", skill: 7, stam: 6 },
-    ],
-  },
-  43: {
-    enemies: [
-      { name: "Primeiro ESQUELETO", skill: 6, stam: 6 },
-      { name: "Segundo ESQUELETO", skill: 7, stam: 6 },
-    ],
-  },
-  78: {
-    enemies: [
-      { name: "Segundo DOGUE ALEMÃO", skill: 6, stam: 6 },
-      { name: "Terceiro DOGUE ALEMÃO", skill: 6, stam: 5 },
-    ],
-  },
-  142: { enemies: [{ name: "INIMIGO INVISÍVEL", skill: 10, stam: 4 }] },
-  170: {
-    enemies: [
-      { name: "Primeiro DOGUE ALEMÃ", skill: 7, stam: 6 },
-      { name: "Segundo DOGUE ALEMÃ", skill: 6, stam: 6 },
-    ],
-  },
-  189: {
-    enemies: [
-      { name: "Primeiro ZUMBI", skill: 7, stam: 6 },
-      { name: "Seu Segundo ZUMBI", skill: 6, stam: 6 },
-    ],
-  },
-  191: { enemies: [{ name: "CORRUGA", skill: 7, stam: 7 }] },
-  336: { enemies: [{ name: "FRANKLINS", skill: 8, stam: 8 }] },
-  343: { enemies: [{ name: "MORCEGOS", skill: 4, stam: 4 }] },
-};
-special[9] = {
-  enemies: [
-    { name: "Primeiro Espírito do Fogo", skill: 7, stam: 4 },
-    { name: "Segundo Espírito do Fogo", skill: 7, stam: 3 },
-  ],
-  win: 375,
-  flee: 218,
-  fire: true,
-};
+import { encounters as special, choiceLocked, rememberCombat, createCombat } from "./encounters.js";
 
 function App() {
   const [readReady, setReadReady] = useState(false),
@@ -130,12 +84,11 @@ function App() {
   const [s, setS] = useState(initial),
     [name, setName] = useState(s.scene === 0 ? s.name : ""),
     [message, setMessage] = useState(""),
-    [enemy, setEnemy] = useState({ name: "", skill: 7, stam: 6 }),
     [item, setItem] = useState(""),
     [sound, setSound] = useState(false);
   const audio = useRef(null),
     scene = scenes[String(s.scene)],
-    dead = s.scene > 0 && (s.stamCur <= 0 || s.fearCur >= s.fearMax);
+    dead = s.scene > 0 && (s.stamCur <= 0 || s.fearCur >= s.fearMax || scene?.ending === "defeat");
   useEffect(() => {
     setReadReady(readingBlocks(scene?.text).length <= 1);
     setRolling(false);
@@ -219,7 +172,12 @@ function App() {
       setMessage("A aventura terminou. Recomece para jogar novamente.");
       return;
     }
+    const choice = scene?.choices?.find((c) => c.to === n);
+    if (!manual && choice && choiceLocked(s, choice)) return;
+    if (special[s.scene]?.flee === n && s.combat?.active) { flee(); return; }
     mutate((p) => {
+      rememberCombat(p, n);
+      p.visited = [...new Set([...(p.visited || []), ...p.history, n])];
       p.scene = n;
       p.history = [...p.history.slice(-99), n];
       p.combat = null;
@@ -253,32 +211,11 @@ function App() {
       note(p, `${key} ${delta > 0 ? "+" : ""}${delta}`);
     });
   }
-  function beginCombat(custom = false) {
-    if (dead) return;
-    const config = !custom && special[s.scene];
-    const first = config?.enemies[0];
-    const e = first || {
-      name: enemy.name.trim() || "Criatura",
-      skill: Number(enemy.skill),
-      stam: Number(enemy.stam),
-    };
-    if (!Number.isFinite(e.skill) || !Number.isFinite(e.stam) || e.stam < 1) {
-      setMessage("Informe os valores da criatura.");
-      return;
-    }
+  function beginCombat() {
+    if (dead || s.combat?.active || !special[s.scene]) return;
     mutate((p) => {
-      p.combat = {
-        enemies: config?.enemies || [e],
-        index: 0,
-        remaining: e.stam,
-        active: true,
-        won: false,
-        lastHit: null,
-        rounds: 0,
-        firstWound: [191, 336].includes(p.scene),
-        fire: !!config?.fire,
-      };
-      note(p, `Combate iniciado: ${e.name}`);
+      p.combat = createCombat(p);
+      note(p, `Combate iniciado: ${p.combat.enemies[p.combat.index].name}`);
     });
     setMessage("");
   }
@@ -306,7 +243,7 @@ function App() {
   function flee() {
     if (!s.combat?.active || dead) return;
     const dest = special[s.scene]?.flee;
-    if (!dest) {
+    if (!dest || (s.combat.totalRounds || 0) < (special[s.scene]?.fleeAfter || 0)) {
       setMessage("Esta cena não oferece fuga.");
       return;
     }
@@ -326,8 +263,10 @@ function App() {
     setName("");
     setMessage("");
   }
-  const isWinChoice = (choice) =>
-    s.scene === 9 ? choice.to === 375 : !!special[s.scene] && s.scene !== 142;
+  const visibleChoices = (scene?.choices || [])
+    .filter((c) => !c.requiresVisit || s.visited?.includes(c.requiresVisit) || s.history?.includes(c.requiresVisit) || s.clues?.some((clue) => clue.scene === c.requiresVisit))
+    .map((c) => c.returnPrevious ? { ...c, to: s.history?.at(-2) } : c)
+    .filter((c) => scenes[String(c.to)]);
   return (
     <>
       <audio
@@ -490,7 +429,7 @@ function App() {
                   Texto importado: esta cena ainda aguarda revisão editorial.
                 </small>
               )}
-              {special[s.scene] && !s.combat?.won && !dead && (
+              {special[s.scene] && !s.combat?.won && !s.combat?.paused && !dead && (
                 <section className="combat special">
                   <h2>Confronto</h2>
                   <p>
@@ -503,7 +442,7 @@ function App() {
                   {!s.combat?.active && (
                     <button
                       className="primary"
-                      onClick={() => beginCombat(false)}
+                      onClick={beginCombat}
                     >
                       Iniciar combate
                     </button>
@@ -516,11 +455,11 @@ function App() {
                 aria-label="Escolhas"
               >
                 <h2>O que você fará?</h2>
-                {scene?.choices?.length ? (
-                  scene.choices.map((c, i) => (
+                {visibleChoices.length ? (
+                  visibleChoices.map((c, i) => (
                     <button
                       key={`${c.to}-${i}`}
-                      disabled={dead || (isWinChoice(c) && !s.combat?.won)}
+                      disabled={dead || rolling || choiceLocked(s, c)}
                       onClick={() => goto(c.to)}
                     >
                       <span>{c.text}</span>
@@ -528,7 +467,7 @@ function App() {
                     </button>
                   ))
                 ) : (
-                  <p>Esta cena não tem escolhas disponíveis.</p>
+                  <p>{scene?.ending === "victory" ? "Você escapou do casarão. Aventura concluída!" : scene?.ending === "defeat" ? "Sua aventura termina aqui." : "Esta cena precisa de revisão."}</p>
                 )}
               </nav>
             </>
@@ -637,6 +576,7 @@ function App() {
                   <p className="hint">Nenhum item anotado.</p>
                 )}
               </section>
+              {(special[s.scene] || s.combat) && (
               <section className="panel">
                 <span className="eyebrow">COMBATE</span>
                 <CombatVisual state={s} rolling={rolling} />
@@ -670,64 +610,20 @@ function App() {
                       </button>
                       <button
                         onClick={flee}
-                        disabled={rolling || dead || !special[s.scene]?.flee}
+                        disabled={rolling || dead || !special[s.scene]?.flee || (s.combat.totalRounds || 0) < (special[s.scene]?.fleeAfter || 0)}
                       >
                         Fugir (−2)
                       </button>
                     </div>
                   </>
                 ) : (
-                  <>
-                    <p className="hint">
-                      Você sempre supera os adversários. Os golpes podem reduzir
-                      sua Resistência até 1. Informe os atributos descritos na
-                      cena.
-                    </p>
-                    <input
-                      value={enemy.name}
-                      onChange={(e) =>
-                        setEnemy({ ...enemy, name: e.target.value })
-                      }
-                      placeholder="Nome do inimigo"
-                      aria-label="Nome do inimigo"
-                    />
-                    <div className="enemy-stats">
-                      <label>
-                        Habilidade
-                        <input
-                          type="number"
-                          min="1"
-                          value={enemy.skill}
-                          onChange={(e) =>
-                            setEnemy({ ...enemy, skill: e.target.value })
-                          }
-                        />
-                      </label>
-                      <label>
-                        Resistência
-                        <input
-                          type="number"
-                          min="1"
-                          value={enemy.stam}
-                          onChange={(e) =>
-                            setEnemy({ ...enemy, stam: e.target.value })
-                          }
-                        />
-                      </label>
-                    </div>
-                    {!s.combat?.won && (
-                      <button
-                        onClick={() => beginCombat(!special[s.scene])}
-                        disabled={dead}
-                      >
-                        {special[s.scene]
-                          ? "Iniciar combate da cena"
-                          : "Iniciar combate manual"}
-                      </button>
-                    )}
-                  </>
+                  <p className="hint">
+                    {s.combat?.paused ? "A luta foi interrompida. Continue pelas opções da cena." :
+                      s.combat?.won ? "Você pode continuar a aventura." : "Inicie o confronto pelo botão na cena."}
+                  </p>
                 )}
               </section>
+              )}
               <AdventureJournal
                 clues={s.clues || []}
                 entries={[...new Set(s.history)]
