@@ -74,6 +74,7 @@ function initial() {
   return fresh();
 }
 const special = {
+  236: { enemies: [{ name: "ZUMBI", skill: 7, stam: 6 }] },
   14: { enemies: [{ name: "DOGUE ALEMÃO", skill: 7, stam: 5 }] },
   30: { enemies: [{ name: "O CONDE DE DRUMER", skill: 9, stam: 10 }] },
   41: {
